@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>590</x>
+      <y>80</y>
+      <w>340</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>pokemon.model :: Pokemon
+--
+- name : String
+- number: int
+- canEvolve: boolean
+- health : int
+- attack: int
+- enhancementModifier: double
+--
++ Pokemon(int,String) : constructor
++ toString() : String
++ getPokemonInformation() : String
++ getPokemonTypes() : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>300</y>
+      <w>190</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>package :: Interface
+--
+
+Methods</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>410</x>
+      <y>100</y>
+      <w>130</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>/AbstractClass/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>10</x>
+      <y>10</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Pokemon
+Juan Delacruz
+12.14.17
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>590</x>
+      <y>300</y>
+      <w>340</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>pokemon.model :: Derptastic
+--
++ annoy(int) : int
++ sayDerp() : String
++ sayDerpDerp() : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>90</y>
+      <w>340</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>pokemon.model :: Pokemon
+--
+- name : String
+- number: int
+- canEvolve: boolean
+- health : int
+- attack: int
+- enhancementModifier: double
+--
++ Pokemon(int,String) : constructor
++ toString() : String
++ getPokemonInformation() : String
++ getPokemonTypes() : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

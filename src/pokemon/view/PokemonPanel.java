@@ -13,7 +13,7 @@ public class PokemonPanel extends JPanel{
 		super();
 		this.controller = controller;
 		baseLayout = new SpringLayout();
-		pokeBall = new JLabel(new ImageIcon(getClass().getResource("images/pokeBall.png")));
+		pokeBall = new JLabel(new ImageIcon(getClass().getResource("images/pokemonBall.png")));
 		
 		setupLayout();
 		setupPanel();
@@ -21,6 +21,7 @@ public class PokemonPanel extends JPanel{
 	}
 	private void setupPanel() {
 		this.setLayout(baseLayout);
+		this.add(pokeBall);
 	}
 	private void setupLayout() {
 		
