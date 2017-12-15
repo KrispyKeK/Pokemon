@@ -24,7 +24,8 @@ public class PokemonPanel extends JPanel{
 		this.add(pokeBall);
 	}
 	private void setupLayout() {
-		
+		baseLayout.putConstraint(SpringLayout.NORTH, pokeBall, 52, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, pokeBall, 68, SpringLayout.WEST, this);
 	}
 	private void setupListeners() {
 		
