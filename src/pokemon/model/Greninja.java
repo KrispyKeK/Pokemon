@@ -1,7 +1,7 @@
 package pokemon.model;
 
-public class Darkrai extends Pokemon implements Dark{
-	public Darkrai(String name, int number) {
+public class Greninja extends Pokemon implements Dark{
+	public Greninja(String name, int number) {
 		super(name, number);
 	}
 	public String bite() {
@@ -11,7 +11,6 @@ public class Darkrai extends Pokemon implements Dark{
 		return "Grrr";
 	}
 	public void persuit() {
-		System.out.println("sneak sneak");
+		
 	}
-	
 }
