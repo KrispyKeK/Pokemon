@@ -24,6 +24,7 @@ public abstract class Pokemon {
 		}
 		return pokeTypes;
 	}
+	
 	public String toString() {
 		String string = "Hi, I am a " + name + " , and my HP is " + healthPoints + ". Impressive right?";
 		return string;

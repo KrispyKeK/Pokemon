@@ -1,9 +1,17 @@
 package pokemon.model;
 
 public class Charizard extends Charmeleon implements Flying{
+	public Charizard() {
+		super("Charizard", 6);
+		setup();
+	}
+	public Charizard(String name) {
+		super(name, 6);
+		setup();
+	}
 	public Charizard(String name, int number) {
-		//not sure if work
 		super(name, number);
+		setup();
 	}
 	public void fly() {
 		
@@ -14,5 +22,13 @@ public class Charizard extends Charmeleon implements Flying{
 	}
 	public void airSlash() {
 		
+	}
+	@Override
+	protected void setup() {
+		super.setup();
+		this.setAttackPoints(95);
+		this.setCanEvolve(true);
+		this.setEnhancementModifier(.6);
+		this.setHealthPoints(109);
 	}
 }
