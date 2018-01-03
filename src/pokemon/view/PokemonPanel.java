@@ -76,6 +76,7 @@ public class PokemonPanel extends JPanel{
 		setupLayout();
 		setupPanel();
 		setupListeners();
+		//updatePokedexInfo(0);
 	}
 	private void setupPanel() {
 		this.setLayout(baseLayout);
@@ -108,10 +109,6 @@ public class PokemonPanel extends JPanel{
 		
 	}
 	private void setupLayout() {
-		baseLayout.putConstraint(SpringLayout.SOUTH, load, -10, SpringLayout.SOUTH, this);
-		baseLayout.putConstraint(SpringLayout.EAST, load, -159, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, save, 0, SpringLayout.NORTH, load);
-		baseLayout.putConstraint(SpringLayout.WEST, save, 6, SpringLayout.EAST, load);
 		baseLayout.putConstraint(SpringLayout.SOUTH, reset, -10, SpringLayout.SOUTH, this);
 		baseLayout.putConstraint(SpringLayout.EAST, reset, 0, SpringLayout.EAST, this);
 		image = new JLabel(new ImageIcon(getClass().getResource("images/pokemonBall.png")));
@@ -149,6 +146,10 @@ public class PokemonPanel extends JPanel{
 		baseLayout.putConstraint(SpringLayout.EAST, modField, 0, SpringLayout.EAST, nameBox);
 		baseLayout.putConstraint(SpringLayout.WEST, healthField, 0, SpringLayout.WEST, nameBox);
 		baseLayout.putConstraint(SpringLayout.EAST, nameBox, -50, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, save, -10, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, save, 0, SpringLayout.WEST, reset);
+		baseLayout.putConstraint(SpringLayout.NORTH, load, 0, SpringLayout.NORTH, save);
+		baseLayout.putConstraint(SpringLayout.EAST, load, 0, SpringLayout.EAST, numberBox);
 	}
 	private void setupListeners() {
 
