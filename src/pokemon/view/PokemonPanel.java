@@ -1,8 +1,7 @@
 package pokemon.view;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
 
+import java.awt.event.*;
 import javax.swing.*;
 import pokemon.controller.PokemonController;
 import pokemon.model.*;
@@ -41,6 +40,8 @@ public class PokemonPanel extends JPanel{
 	private JLabel nameLabel;
 	
 	
+	
+	
 	public PokemonPanel(PokemonController controller) {
 		super();
 		this.controller = controller;
@@ -69,14 +70,13 @@ public class PokemonPanel extends JPanel{
 		modBox = new JLabel("Enhance: ");
 		evolveLabel = new JLabel("Evolve: ");
 		nameLabel = new JLabel("Name: ");
-		
+		image = new JLabel(new ImageIcon(getClass().getResource("images/pokemonBall.png")));
 		
 		baseLayout = new SpringLayout();
 		
 		setupLayout();
 		setupPanel();
 		setupListeners();
-		//updatePokedexInfo(0);
 	}
 	private void setupPanel() {
 		this.setLayout(baseLayout);
@@ -111,7 +111,6 @@ public class PokemonPanel extends JPanel{
 	private void setupLayout() {
 		baseLayout.putConstraint(SpringLayout.SOUTH, reset, -10, SpringLayout.SOUTH, this);
 		baseLayout.putConstraint(SpringLayout.EAST, reset, 0, SpringLayout.EAST, this);
-		image = new JLabel(new ImageIcon(getClass().getResource("images/pokemonBall.png")));
 		baseLayout.putConstraint(SpringLayout.SOUTH, attackField, 0, SpringLayout.SOUTH, image);
 		baseLayout.putConstraint(SpringLayout.NORTH, nameBox, 0, SpringLayout.NORTH, image);
 		baseLayout.putConstraint(SpringLayout.SOUTH, image, -6, SpringLayout.NORTH, scroll);
@@ -152,7 +151,11 @@ public class PokemonPanel extends JPanel{
 		baseLayout.putConstraint(SpringLayout.EAST, load, 0, SpringLayout.EAST, numberBox);
 	}
 	private void setupListeners() {
-
+		scroll.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				updatePokedexInfo(0);
+			}
+		});
 		
 	}
 	private void updatePokedexInfo(int index) {
