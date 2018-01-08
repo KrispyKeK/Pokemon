@@ -40,11 +40,15 @@ public class PokemonPanel extends JPanel
 	private JLabel image;
 	private JLabel evolveLabel;
 	private JLabel nameLabel;
-		
+	
+	private String updateImage;
+	
 	public PokemonPanel(PokemonController controller) 
 	{
 		super();
 		this.controller = controller;
+		
+		String updateImage = "pokemonBall";
 		
 		save = new JButton("Save");
 		load = new JButton("Load");
@@ -71,7 +75,7 @@ public class PokemonPanel extends JPanel
 		modBox = new JLabel("Enhance: ");
 		evolveLabel = new JLabel("Evolve: ");
 		nameLabel = new JLabel("Name: ");
-		image = new JLabel(new ImageIcon(getClass().getResource("images/pokemonBall.png")));
+		image = new JLabel(new ImageIcon(getClass().getResource("images/" + updateImage + ".png")));
 		
 		baseLayout = new SpringLayout();
 		
@@ -173,6 +177,7 @@ public class PokemonPanel extends JPanel
 				updatePokedexInfo(currentPokemon);
 				updateTypeLabel();
 				updateDescription();
+				updateImageLabel();
 				repaint();
 			}
 		});
@@ -233,7 +238,7 @@ public class PokemonPanel extends JPanel
 	}
 	private void updateTypeLabel() {
 		String[] types = controller.getPokedex().get(scroll.getSelectedIndex()).getPokemonTypes();
-		if (types[0].equals("Fire") && types.length < 2) {
+		if (types[0].equals("Fire")) {
 			typeOne.setBackground(Color.ORANGE);
 		}
 		else if(types[0].equals("Dark")) {
@@ -262,13 +267,25 @@ public class PokemonPanel extends JPanel
 			else if(types[1].equals("Flying")) {
 				typeTwo.setBackground(Color.CYAN);
 			}
-			else {
-				typeTwo.setBackground(Color.WHITE);
-			}
 			if (types.length == 3) {
 				//no pokemon has 3 types kek
 			}
 		}
+		else {
+			typeTwo.setBackground(Color.WHITE);
+		}
+	}
+	private void updateImageLabel() {
+		String currentMon = controller.getPokedex().get(scroll.getSelectedIndex()).getName();
+		switch (currentMon) {
+		case "Darkrai": 
+			updateImage = "Darkrai";
+			break;
+		default:
+			updateImage = "pokemonBall";
+			break;
+		}
+		image.setIcon(new ImageIcon(getClass().getResource("images/" + updateImage + ".png")));
 	}
 
 }
