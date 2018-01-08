@@ -1,6 +1,6 @@
 package pokemon.model;
 
-public class Charmeleon extends Charmander{
+public class Charmeleon extends Charmander implements Fire{
 	public Charmeleon() {
 		super("Charmeleon", 5);
 		setup();
@@ -17,7 +17,7 @@ public class Charmeleon extends Charmander{
 	protected void setup() {
 		super.setup();
 		this.setAttackPoints(125);
-		this.setCanEvolve(false);
+		this.setCanEvolve(true);
 		this.setEnhancementModifier(.84);
 		this.setHealthPoints(235);
 	}

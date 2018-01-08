@@ -2,7 +2,8 @@ package pokemon.model;
 
 import java.util.*;
 
-public abstract class Pokemon {
+public abstract class Pokemon 
+{
 	private int healthPoints;
 	private int attackPoints;
 	private int number;
@@ -10,11 +11,13 @@ public abstract class Pokemon {
 	private String name;
 	private boolean canEvolve;
 	
-	public Pokemon(String name, int number){
+	public Pokemon(String name, int number)
+	{
 		this.name = name;
 		this.number = number;
 	}
-	public final String[] getPokemonTypes() {
+	public final String[] getPokemonTypes() 
+	{
 		Class<?> [] types = getClass().getInterfaces();
 		String[] pokeTypes = new String[types.length];
 		for (int index = 0; index<types.length;index++) {
@@ -25,45 +28,58 @@ public abstract class Pokemon {
 		return pokeTypes;
 	}
 	
-	public String toString() {
+	public String toString() 
+	{
 		String string = "Hi, I am a " + name + " , and my HP is " + healthPoints + ". Impressive right?";
 		return string;
 	}
-	public String getPokemonInformation() {
+	public String getPokemonInformation() 
+	{
 		String info = "This pokemon is of type: " + this.getClass().getSimpleName();
 		return info;
 	}
-	public int getHealthPoints() {
+	public int getHealthPoints() 
+	{
 		return healthPoints;
 	}
-	public void setHealthPoints(int healthPoints) {
+	public void setHealthPoints(int healthPoints) 
+	{
 		this.healthPoints = healthPoints;
 	}
-	public int getAttackPoints() {
+	public int getAttackPoints()
+	{
 		return attackPoints;
 	}
-	public void setAttackPoints(int attackPoints) {
+	public void setAttackPoints(int attackPoints) 
+	{
 		this.attackPoints = attackPoints;
 	}
-	public double getEnhancementModifier() {
+	public double getEnhancementModifier() 
+	{
 		return enhancementModifier;
 	}
-	public void setEnhancementModifier(double enhancementModifier) {
+	public void setEnhancementModifier(double enhancementModifier) 
+	{
 		this.enhancementModifier = enhancementModifier;
 	}
-	public String getName() {
+	public String getName() 
+	{
 		return name;
 	}
-	public void setName(String name) {
+	public void setName(String name) 
+	{
 		this.name = name;
 	}
-	public boolean isCanEvolve() {
+	public boolean isCanEvolve() 
+	{
 		return canEvolve;
 	}
-	public void setCanEvolve(boolean canEvolve) {
+	public void setCanEvolve(boolean canEvolve) 
+	{
 		this.canEvolve = canEvolve;
 	}
-	public int getNumber() {
+	public int getNumber()
+	{
 		return number;
 	}
 	

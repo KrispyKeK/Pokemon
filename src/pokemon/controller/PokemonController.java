@@ -4,39 +4,60 @@ import pokemon.view.*;
 import pokemon.model.*;
 import java.util.*;
 
-public class PokemonController {
+public class PokemonController 
+{
 	PokemonFrame frame;
-	public PokemonController() {
-		frame = new PokemonFrame(this);
-		setupPokeDex();
-	}
 	private List<Pokemon> pokedex;
-	public List<Pokemon> getPokedex(){
+	public PokemonController() 
+	{
+		pokedex = new ArrayList<Pokemon>();
+		setupPokeDex();
+		
+		frame = new PokemonFrame(this);
+	}
+	public String[] convertPokedex() 
+	{
+		String[] names = new String[pokedex.size()];
+		for (int index = 0; index < pokedex.size(); index++) 
+		{
+			names[index] = pokedex.get(index).getName();
+		}
+		return names;
+	}
+	public List<Pokemon> getPokedex()
+	{
 		return pokedex;
 	}
-	public boolean isInteger(String input) {
+	public boolean isInteger(String input) 
+	{
 		boolean condition = false;
-		try {
+		try 
+		{
 			int inp = Integer.parseInt(input);
 			condition = true;
 		}
-		catch(Exception e) {
-			
+		catch(Exception e) 
+		{
+			//do nothing
 		}
 		return condition;
 	}
-	public boolean isDouble(String input) {
+	public boolean isDouble(String input) 
+	{
 		boolean condition = false;
-		try {
+		try 
+		{
 			double inp = Double.parseDouble(input);
 			condition = true;
 		}
-		catch(Exception e) {
-			
+		catch(Exception e) 
+		{
+			//do nothing
 		}
 		return condition;
 	}
-	private void setupPokeDex() {
+	private void setupPokeDex() 
+	{
 		Darkrai darkrai = new Darkrai();
 		Charizard charizard = new Charizard();
 		Charmeleon charmeleon = new Charmeleon();

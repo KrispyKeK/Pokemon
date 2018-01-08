@@ -1,28 +1,36 @@
 package pokemon.model;
 
-public class Greninja extends Pokemon implements Dark{
-	public Greninja() {
+public class Greninja extends Pokemon implements Dark
+{
+	public Greninja() 
+	{
 		super("Greninja", 658);
 		setup();
 	}
-	public Greninja(String name) {
+	public Greninja(String name) 
+	{
 		super(name, 658);
 		setup();
 	}
-	public Greninja(String name, int number) {
+	public Greninja(String name, int number) 
+	{
 		super(name, number);
 		setup();
 	}
-	public String bite() {
+	public String bite() 
+	{
 		return "Nom";
 	}
-	public String crunch() {
+	public String crunch() 
+	{
 		return "Grrr";
 	}
-	public void persuit() {
+	public void persuit() 
+	{
 		
 	}
-	protected void setup() {
+	protected void setup() 
+	{
 		this.setAttackPoints(119);
 		this.setCanEvolve(false);
 		this.setEnhancementModifier(.68);
