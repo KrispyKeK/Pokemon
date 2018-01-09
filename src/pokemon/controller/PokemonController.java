@@ -64,14 +64,16 @@ public class PokemonController
 		Charmander charmander = new Charmander();
 		Greninja greninja = new Greninja();
 		Litten litten = new Litten();
+		Torracat torracat = new Torracat();
 		MarshShadow marshshadow = new MarshShadow();
+		pokedex.add(charmander);
+		pokedex.add(charmeleon);
+		pokedex.add(charizard);
+		pokedex.add(litten);
+		pokedex.add(torracat);
 		pokedex.add(marshshadow);
 		pokedex.add(greninja);
 		pokedex.add(darkrai);
-		pokedex.add(charizard);
-		pokedex.add(charmander);
-		pokedex.add(charmeleon);
-		pokedex.add(litten);
 		
 	}
 }

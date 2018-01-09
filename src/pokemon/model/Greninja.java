@@ -1,6 +1,6 @@
 package pokemon.model;
 
-public class Greninja extends Pokemon implements Dark
+public class Greninja extends Pokemon implements Dark, Water
 {
 	public Greninja() 
 	{
@@ -26,6 +26,18 @@ public class Greninja extends Pokemon implements Dark
 		return "Grrr";
 	}
 	public void persuit() 
+	{
+		
+	}
+	public void splash() 
+	{
+		
+	}
+	public void hydro() 
+	{
+		
+	}
+	public void surf() 
 	{
 		
 	}

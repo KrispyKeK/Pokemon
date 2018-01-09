@@ -57,17 +57,28 @@ public class PokemonPanel extends JPanel
 		scroll = new JComboBox();
 		
 		evolveBox = new JCheckBox();
+		evolveBox.setEnabled(false);
 		
 		description = new JTextArea("Description: ");
 		typeOne = new JTextArea("Type");
 		typeTwo = new JTextArea("Type");
 		typeThree = new JTextArea("Type");
 		
+		description.setEditable(false);
+		typeOne.setEditable(false);
+		typeTwo.setEditable(false);
+		typeThree.setEditable(false);
+		
 		nameBox = new JTextField(7);
 		numberField = new JTextField(7);
 		healthField = new JTextField(7);
 		modField = new JTextField(7);
 		attackField = new JTextField(7);
+		
+		numberField.setEditable(false);
+		healthField.setEditable(false);
+		modField.setEditable(false);
+		attackField.setEditable(false);
 		
 		numberBox = new JLabel("Number: ");
 		healthBox = new JLabel("Health: ");
@@ -87,6 +98,7 @@ public class PokemonPanel extends JPanel
 	private void setupPanel() 
 	{
 		this.setLayout(baseLayout);
+
 		this.add(image);
 		
 		this.add(nameBox);
@@ -117,21 +129,29 @@ public class PokemonPanel extends JPanel
 	}
 	private void setupLayout() 
 	{
+		baseLayout.putConstraint(SpringLayout.NORTH, load, 0, SpringLayout.NORTH, save);
+		baseLayout.putConstraint(SpringLayout.EAST, load, -6, SpringLayout.WEST, save);
+		baseLayout.putConstraint(SpringLayout.SOUTH, scroll, -45, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, reset, 380, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.EAST, reset, 0, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, save, 0, SpringLayout.NORTH, reset);
+		baseLayout.putConstraint(SpringLayout.WEST, save, -146, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.EAST, save, -6, SpringLayout.WEST, reset);
+		baseLayout.putConstraint(SpringLayout.SOUTH, reset, 0, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, typeOne, 266, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, typeThree, 11, SpringLayout.SOUTH, description);
+		baseLayout.putConstraint(SpringLayout.NORTH, typeTwo, 11, SpringLayout.SOUTH, description);
 		baseLayout.putConstraint(SpringLayout.NORTH, evolveLabel, 14, SpringLayout.SOUTH, numberBox);
 		baseLayout.putConstraint(SpringLayout.NORTH, evolveBox, 6, SpringLayout.SOUTH, numberField);
 		baseLayout.putConstraint(SpringLayout.WEST, evolveBox, 0, SpringLayout.WEST, nameBox);
 		baseLayout.putConstraint(SpringLayout.WEST, evolveLabel, 0, SpringLayout.WEST, numberBox);
 		baseLayout.putConstraint(SpringLayout.WEST, typeTwo, 82, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, typeThree, 5, SpringLayout.NORTH, save);
 		baseLayout.putConstraint(SpringLayout.WEST, typeThree, 6, SpringLayout.EAST, typeTwo);
 		baseLayout.putConstraint(SpringLayout.NORTH, description, 6, SpringLayout.SOUTH, image);
 		baseLayout.putConstraint(SpringLayout.SOUTH, description, -11, SpringLayout.NORTH, typeOne);
-		baseLayout.putConstraint(SpringLayout.NORTH, typeOne, 5, SpringLayout.NORTH, save);
 		baseLayout.putConstraint(SpringLayout.WEST, typeOne, 36, SpringLayout.WEST, image);
 		baseLayout.putConstraint(SpringLayout.EAST, typeOne, -6, SpringLayout.WEST, typeTwo);
-		baseLayout.putConstraint(SpringLayout.NORTH, typeTwo, 5, SpringLayout.NORTH, save);
 		baseLayout.putConstraint(SpringLayout.WEST, scroll, 265, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.SOUTH, scroll, -6, SpringLayout.NORTH, save);
 		baseLayout.putConstraint(SpringLayout.EAST, scroll, 0, SpringLayout.EAST, nameBox);
 		baseLayout.putConstraint(SpringLayout.WEST, description, 0, SpringLayout.WEST, image);
 		baseLayout.putConstraint(SpringLayout.EAST, description, 198, SpringLayout.WEST, this);
@@ -143,8 +163,6 @@ public class PokemonPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.NORTH, nameBox, 15, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.NORTH, image, 10, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.SOUTH, image, 0, SpringLayout.SOUTH, attackBox);
-		baseLayout.putConstraint(SpringLayout.SOUTH, reset, -10, SpringLayout.SOUTH, this);
-		baseLayout.putConstraint(SpringLayout.EAST, reset, 0, SpringLayout.EAST, this);
 		baseLayout.putConstraint(SpringLayout.EAST, numberBox, -11, SpringLayout.WEST, numberField);
 		baseLayout.putConstraint(SpringLayout.NORTH, healthBox, 5, SpringLayout.NORTH, healthField);
 		baseLayout.putConstraint(SpringLayout.WEST, healthBox, 0, SpringLayout.WEST, numberBox);
@@ -162,10 +180,6 @@ public class PokemonPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.EAST, modField, 0, SpringLayout.EAST, nameBox);
 		baseLayout.putConstraint(SpringLayout.WEST, healthField, 0, SpringLayout.WEST, nameBox);
 		baseLayout.putConstraint(SpringLayout.EAST, nameBox, -50, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.SOUTH, save, -10, SpringLayout.SOUTH, this);
-		baseLayout.putConstraint(SpringLayout.EAST, save, 0, SpringLayout.WEST, reset);
-		baseLayout.putConstraint(SpringLayout.NORTH, load, 0, SpringLayout.NORTH, save);
-		baseLayout.putConstraint(SpringLayout.EAST, load, 0, SpringLayout.EAST, numberBox);
 	}
 	private void setupListeners() 
 	{
@@ -197,28 +211,28 @@ public class PokemonPanel extends JPanel
 		else if(type[0].equals("Flying")) {
 			description.setText("Flying");
 		}
-		else 
-		{
-			typeOne.setBackground(Color.WHITE);
+		else if(type[0].equals("Water")) {
+			description.setText("Water");
+		}
+		else {
 		}
 		if (type.length > 1) {
 			if (type[1].equals("Fire")) {
-				description.setText("Fire");
+				description.append(", Fire");
 			}
 			else if(type[1].equals("Dark")) {
-				description.setText("Dark");
+				description.append(", Dark");
 			}
 			else if(type[1].equals("Ghost")) {
-				description.setText("Ghost");
+				description.append(", Ghost");
 			}
 			else if(type[1].equals("Flying")) {
-				description.setText("Flying");
+				description.append(", Flying");
+			}
+			else if(type[0].equals("Water")) {
+				description.append(", Water");
 			}
 			else {
-				typeTwo.setBackground(Color.WHITE);
-			}
-			if (type.length == 3) {
-				//no pokemon has 3 types kek
 			}
 		}
 	}
@@ -250,6 +264,9 @@ public class PokemonPanel extends JPanel
 		else if(types[0].equals("Flying")) {
 			typeOne.setBackground(Color.CYAN);
 		}
+		else if(types[0].equals("Water")) {
+			typeOne.setBackground(Color.BLUE);
+		}
 		else 
 		{
 			typeOne.setBackground(Color.WHITE);
@@ -267,8 +284,8 @@ public class PokemonPanel extends JPanel
 			else if(types[1].equals("Flying")) {
 				typeTwo.setBackground(Color.CYAN);
 			}
-			if (types.length == 3) {
-				//no pokemon has 3 types kek
+			else if(types[1].equals("Water")) {
+				typeTwo.setBackground(Color.BLUE);
 			}
 		}
 		else {
@@ -280,6 +297,27 @@ public class PokemonPanel extends JPanel
 		switch (currentMon) {
 		case "Darkrai": 
 			updateImage = "Darkrai";
+			break;
+		case "Charizard":
+			updateImage = "Charizard";
+			break;
+		case "Litten":
+			updateImage = "Litten";
+			break;
+		case "Marshadow":
+			updateImage = "Marshadow";
+			break;
+		case "Charmander":
+			updateImage = "Charmander";
+			break;	
+		case "Charmeleon":
+			updateImage = "Charmeleon";
+			break;	
+		case "Greninja":
+			updateImage = "Greninja";
+			break;
+		case "Torracat":
+			updateImage = "Torracat";
 			break;
 		default:
 			updateImage = "pokemonBall";
