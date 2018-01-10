@@ -229,7 +229,7 @@ public class PokemonPanel extends JPanel
 			else if(type[1].equals("Flying")) {
 				description.append(", Flying");
 			}
-			else if(type[0].equals("Water")) {
+			else if(type[1].equals("Water")) {
 				description.append(", Water");
 			}
 			else {
