@@ -65,12 +65,14 @@ public class PokemonController
 		Greninja greninja = new Greninja();
 		Litten litten = new Litten();
 		Torracat torracat = new Torracat();
+		Incineroar incineroar = new Incineroar();
 		MarshShadow marshshadow = new MarshShadow();
 		pokedex.add(charmander);
 		pokedex.add(charmeleon);
 		pokedex.add(charizard);
 		pokedex.add(litten);
 		pokedex.add(torracat);
+		pokedex.add(incineroar);
 		pokedex.add(marshshadow);
 		pokedex.add(greninja);
 		pokedex.add(darkrai);

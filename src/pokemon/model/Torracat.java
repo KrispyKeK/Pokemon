@@ -1,6 +1,7 @@
 package pokemon.model;
 
-public class Torracat extends Litten implements Fire, Dark{
+public class Torracat extends Litten implements Fire, Dark
+{
 	public Torracat(String name,int number) 
 	{
 		super(name, number);

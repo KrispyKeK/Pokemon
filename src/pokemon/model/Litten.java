@@ -1,6 +1,6 @@
 package pokemon.model;
 
-public class Litten extends Pokemon implements Dark, Fire
+public class Litten extends Pokemon implements Fire, Dark
 {
 	public Litten() 
 	{

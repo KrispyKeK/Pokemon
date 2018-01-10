@@ -319,6 +319,9 @@ public class PokemonPanel extends JPanel
 		case "Torracat":
 			updateImage = "Torracat";
 			break;
+		case "Incineroar":
+			updateImage = "Incineroar";
+			break;
 		default:
 			updateImage = "pokemonBall";
 			break;
