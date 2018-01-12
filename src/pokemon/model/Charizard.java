@@ -38,5 +38,6 @@ public class Charizard extends Charmeleon implements Fire,Flying
 		this.setCanEvolve(false);
 		this.setEnhancementModifier(.6);
 		this.setHealthPoints(109);
+		this.setCanMega(true);
 	}
 }

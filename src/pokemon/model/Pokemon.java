@@ -10,6 +10,7 @@ public abstract class Pokemon
 	private double enhancementModifier;
 	private String name;
 	private boolean canEvolve;
+	private boolean canMega;
 	
 	public Pokemon(String name, int number)
 	{
@@ -104,6 +105,14 @@ public abstract class Pokemon
 	public int getNumber()
 	{
 		return number;
+	}
+	public boolean getMega() 
+	{
+		return canMega;
+	}
+	public void setCanMega(boolean canMega) 
+	{
+		this.canMega = canMega;
 	}
 	
 	

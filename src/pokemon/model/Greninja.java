@@ -1,6 +1,6 @@
 package pokemon.model;
 
-public class Greninja extends Pokemon implements Dark, Water
+public class Greninja extends Pokemon implements Water, Dark
 {
 	public Greninja() 
 	{

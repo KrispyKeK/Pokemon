@@ -76,6 +76,14 @@ public class PokemonController
 		pokedex.add(marshshadow);
 		pokedex.add(greninja);
 		pokedex.add(darkrai);
+	}
+	private void updatedSelected(int selection, int health, int attack, boolean evolve,double modify, String name) {
+		Pokemon selected = pokedex.get(selection);
 		
+		selected.setAttackPoints(attack);
+		selected.setCanEvolve(evolve);
+		selected.setEnhancementModifier(modify);
+		selected.setName(name);
+		selected.setHealthPoints(health);
 	}
 }
