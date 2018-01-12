@@ -322,13 +322,17 @@ public class PokemonPanel extends JPanel
 		}
 	}
 	private void megaEvolve() {
-		Pokemon currentMon = controller.getPokedex().get(scroll.getSelectedIndex());
-		if (megaBox.isSelected() && currentMon.getName().equals("Charizard")) {
+		int currentIndex = scroll.getSelectedIndex();
+		if (megaBox.isSelected() && controller.getPokedex().get(scroll.getSelectedIndex()).getName().equals("Charizard")) {
 			image.setIcon(new ImageIcon(getClass().getResource("images/" + "MegaCharizardY" + ".png")));
+			controller.getPokedex().get(scroll.getSelectedIndex()).setAttackPoints(150);
+			updatePokedexInfo(currentIndex);
 		}
 		else {
 			updateImage = controller.getPokedex().get(scroll.getSelectedIndex()).getName();
 			image.setIcon(new ImageIcon(getClass().getResource("images/" + updateImage + ".png")));
+			controller.getPokedex().get(scroll.getSelectedIndex()).setAttackPoints(109);
+			updatePokedexInfo(currentIndex);
 		}
 	}
 	private void setupScrollPane() {

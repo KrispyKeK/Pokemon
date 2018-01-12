@@ -77,7 +77,7 @@ public class PokemonController
 		pokedex.add(greninja);
 		pokedex.add(darkrai);
 	}
-	private void updatedSelected(int selection, int health, int attack, boolean evolve,double modify, String name) {
+	public void updatedSelected(int selection, int health, int attack, boolean evolve,double modify, String name) {
 		Pokemon selected = pokedex.get(selection);
 		
 		selected.setAttackPoints(attack);
