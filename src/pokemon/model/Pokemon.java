@@ -18,14 +18,37 @@ public abstract class Pokemon
 	}
 	public final String[] getPokemonTypes() 
 	{
-		Class<?> [] types = getClass().getInterfaces();
-		String[] pokeTypes = new String[types.length];
-		for (int index = 0; index<types.length;index++) {
-			String currentInterface = types[index].getCanonicalName();
-			currentInterface = currentInterface.replace(this.getClass().getPackage().getName() + ".","");
-			pokeTypes[index] = currentInterface;
+//		Class<?> [] types = getClass().getInterfaces();
+//		String[] pokeTypes = new String[types.length];
+//		for (int index = 0; index<types.length;index++) {
+//			String currentInterface = types[index].getCanonicalName();
+//			currentInterface = currentInterface.replace(this.getClass().getPackage().getName() + ".","");
+//			pokeTypes[index] = currentInterface;
+//		}
+		//return pokeTypes;
+		String[] types = null;
+		ArrayList<String> parentType = new ArrayList<String>();
+		Class<?> currentClass = this.getClass();
+		
+		while (currentClass.getSuperclass() != null) {
+			Class<?> [] pokemonTypes = getClass().getInterfaces();
+			types = new String[pokemonTypes.length];
+			
+			for(int index = 0; index < types.length; index++) {
+				String currentInterface = pokemonTypes[index].getCanonicalName();
+				currentInterface = currentInterface.replace(this.getClass().getPackage().getName() + ".", "");
+				if (!parentType.contains(currentInterface)) {
+					parentType.add(currentInterface);
+				}
+			}
+			currentClass = currentClass.getSuperclass();
 		}
-		return pokeTypes;
+		types = new String[parentType.size()];
+		for(int index = 0; index < parentType.size(); index++) {
+			types[index] = parentType.get(index);
+		}
+		return types;
+		
 	}
 	
 	public String toString() 

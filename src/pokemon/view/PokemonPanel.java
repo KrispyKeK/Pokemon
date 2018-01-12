@@ -3,10 +3,12 @@ package pokemon.view;
 
 import java.awt.Color;
 import java.awt.event.*;
+import java.util.*;
 import javax.swing.*;
 import pokemon.controller.PokemonController;
 import pokemon.model.*;
 import pokemon.controller.*;
+
 
 public class PokemonPanel extends JPanel
 {	
@@ -217,19 +219,24 @@ public class PokemonPanel extends JPanel
 		else {
 		}
 		if (type.length > 1) {
-			if (type[1].equals("Fire")) {
+			if (type[1].equals("Fire")) 
+			{
 				description.append(", Fire");
 			}
-			else if(type[1].equals("Dark")) {
+			else if(type[1].equals("Dark")) 
+			{
 				description.append(", Dark");
 			}
-			else if(type[1].equals("Ghost")) {
+			else if(type[1].equals("Ghost")) 
+			{
 				description.append(", Ghost");
 			}
-			else if(type[1].equals("Flying")) {
+			else if(type[1].equals("Flying")) 
+			{
 				description.append(", Flying");
 			}
-			else if(type[1].equals("Water")) {
+			else if(type[1].equals("Water")) 
+			{
 				description.append(", Water");
 			}
 			else {
@@ -250,83 +257,63 @@ public class PokemonPanel extends JPanel
 		DefaultComboBoxModel pokemonList = new DefaultComboBoxModel(controller.convertPokedex());
 		scroll.setModel(pokemonList);
 	}
-	private void updateTypeLabel() {
+	private void updateTypeLabel() 
+	{
 		String[] types = controller.getPokedex().get(scroll.getSelectedIndex()).getPokemonTypes();
-		if (types[0].equals("Fire")) {
+		if (types[0].equals("Fire")) 
+		{
 			typeOne.setBackground(Color.ORANGE);
 		}
-		else if(types[0].equals("Dark")) {
+		else if(types[0].equals("Dark")) 
+		{
 			typeOne.setBackground(Color.BLACK);
 		}
-		else if(types[0].equals("Ghost")) {
+		else if(types[0].equals("Ghost")) 
+		{
 			typeOne.setBackground(Color.GRAY);
 		}
-		else if(types[0].equals("Flying")) {
+		else if(types[0].equals("Flying")) 
+		{
 			typeOne.setBackground(Color.CYAN);
 		}
-		else if(types[0].equals("Water")) {
+		else if(types[0].equals("Water")) 
+		{
 			typeOne.setBackground(Color.BLUE);
 		}
 		else 
 		{
 			typeOne.setBackground(Color.WHITE);
 		}
-		if (types.length > 1) {
-			if (types[1].equals("Fire")) {
+		if (types.length > 1) 
+		{
+			if (types[1].equals("Fire")) 
+			{
 				typeTwo.setBackground(Color.ORANGE);
 			}
-			else if(types[1].equals("Dark")) {
+			else if(types[1].equals("Dark")) 
+			{
 				typeTwo.setBackground(Color.BLACK);
 			}
-			else if(types[1].equals("Ghost")) {
+			else if(types[1].equals("Ghost")) 
+			{
 				typeTwo.setBackground(Color.GRAY);
 			}
-			else if(types[1].equals("Flying")) {
+			else if(types[1].equals("Flying")) 
+			{
 				typeTwo.setBackground(Color.CYAN);
 			}
-			else if(types[1].equals("Water")) {
+			else if(types[1].equals("Water")) 
+			{
 				typeTwo.setBackground(Color.BLUE);
 			}
 		}
-		else {
+		else 
+		{
 			typeTwo.setBackground(Color.WHITE);
 		}
 	}
 	private void updateImageLabel() {
-		String currentMon = controller.getPokedex().get(scroll.getSelectedIndex()).getName();
-		switch (currentMon) {
-		case "Darkrai": 
-			updateImage = "Darkrai";
-			break;
-		case "Charizard":
-			updateImage = "Charizard";
-			break;
-		case "Litten":
-			updateImage = "Litten";
-			break;
-		case "Marshadow":
-			updateImage = "Marshadow";
-			break;
-		case "Charmander":
-			updateImage = "Charmander";
-			break;	
-		case "Charmeleon":
-			updateImage = "Charmeleon";
-			break;	
-		case "Greninja":
-			updateImage = "Greninja";
-			break;
-		case "Torracat":
-			updateImage = "Torracat";
-			break;
-		case "Incineroar":
-			updateImage = "Incineroar";
-			break;
-		default:
-			updateImage = "pokemonBall";
-			break;
-		}
+		updateImage = controller.getPokedex().get(scroll.getSelectedIndex()).getName();
 		image.setIcon(new ImageIcon(getClass().getResource("images/" + updateImage + ".png")));
 	}
-
 }
