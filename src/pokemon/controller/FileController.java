@@ -27,4 +27,20 @@ public class FileController
 			System.out.println("There was an error: " + error.getMessage());
 		}
 	}
+	public static String readPokemonFromFile() {
+		String contents = "";
+		String path = "Saved Pokedex.txt";
+		try {
+			Scanner scanner = new Scanner(new File(path));
+			while(scanner.hasNextLine()) {
+				String row = scanner.nextLine();
+				contents += row + "\n";
+			}
+			scanner.close();
+		}
+		catch(FileNotFoundException error) {
+			System.out.println("There was an error: " + error.getMessage());
+		}
+		return contents;
+	}
 }

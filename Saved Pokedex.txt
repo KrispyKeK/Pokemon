@@ -1,7 +1,7 @@
 Charmander,4,75,66,0.5,true
 Charmeleon,5,235,125,0.84,true
-Nibba,6,130,150,0.6,false
-Litten,725,76,58,0.7,true
+Mega Faggot,6,109,95,0.6,false
+Kill all jews,725,76,58,0.7,true
 Torracat,726,103,78,0.7,true
 Incineroar,727,133,87,0.72,false
 Marshadow,802,101,100,0.72,false

@@ -232,6 +232,11 @@ public class PokemonPanel extends JPanel
 				}
 			}
 		});
+		reset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent click) {
+				nameBox.setText(scroll.getSelectedItem().toString());
+			}
+		});
 	}
 	private void updateDescription() 
 	{
@@ -340,14 +345,14 @@ public class PokemonPanel extends JPanel
 	private void megaEvolve() 
 	{
 		int currentIndex = scroll.getSelectedIndex();
-		if (megaBox.isSelected() && controller.getPokedex().get(scroll.getSelectedIndex()).getName().equals("Charizard")) {
+		if (megaBox.isSelected() && scroll.getSelectedItem().toString().equals("Charizard")) {
 			image.setIcon(new ImageIcon(getClass().getResource("images/" + "MegaCharizardY" + ".png")));
 			controller.getPokedex().get(scroll.getSelectedIndex()).setAttackPoints(150);
 			controller.getPokedex().get(scroll.getSelectedIndex()).setHealthPoints(130);
 			updatePokedexInfo(currentIndex);
 		}
 		else {
-			updateImage = controller.getPokedex().get(scroll.getSelectedIndex()).getName();
+			updateImage = scroll.getSelectedItem().toString();
 			image.setIcon(new ImageIcon(getClass().getResource("images/" + updateImage + ".png")));
 			controller.getPokedex().get(scroll.getSelectedIndex()).setAttackPoints(95);
 			controller.getPokedex().get(scroll.getSelectedIndex()).setHealthPoints(109);
