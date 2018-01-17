@@ -85,5 +85,7 @@ public class PokemonController
 		selected.setEnhancementModifier(modify);
 		selected.setName(name);
 		selected.setHealthPoints(health);
+		
+		FileController.savePokemonFile((ArrayList<Pokemon>)pokedex);
 	}
 }

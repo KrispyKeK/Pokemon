@@ -228,7 +228,7 @@ public class PokemonPanel extends JPanel
 					boolean evolve = evolveBox.isSelected();
 					
 					//send to the controller to modify each the mon change
-					controller.updatedSelected(selected, health, attack, evolve, mod, name);
+					controller.updatedSelected(selected, health, attack, evolve, mod, name);			
 				}
 			}
 		});
@@ -337,7 +337,8 @@ public class PokemonPanel extends JPanel
 			megaBox.setEnabled(false);
 		}
 	}
-	private void megaEvolve() {
+	private void megaEvolve() 
+	{
 		int currentIndex = scroll.getSelectedIndex();
 		if (megaBox.isSelected() && controller.getPokedex().get(scroll.getSelectedIndex()).getName().equals("Charizard")) {
 			image.setIcon(new ImageIcon(getClass().getResource("images/" + "MegaCharizardY" + ".png")));
@@ -353,7 +354,8 @@ public class PokemonPanel extends JPanel
 			updatePokedexInfo(currentIndex);
 		}
 	}
-	private void setupScrollPane() {
+	private void setupScrollPane() 
+	{
 		scrollPane.setViewportView(description);
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
