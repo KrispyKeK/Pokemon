@@ -216,6 +216,22 @@ public class PokemonPanel extends JPanel
 				megaEvolve();
 			}
 		});
+		save.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent click) {
+				if (controller.isInteger(attackField.getText()) && controller.isDouble(modField.getText())) 
+				{
+					int selected = scroll.getSelectedIndex();
+					int health = Integer.parseInt(healthField.getText());
+					int attack = Integer.parseInt(attackField.getText());
+					double mod = Double.parseDouble(modField.getText());
+					String name = nameBox.getText();
+					boolean evolve = evolveBox.isSelected();
+					
+					//send to the controller to modify each the mon change
+					controller.updatedSelected(selected, health, attack, evolve, mod, name);
+				}
+			}
+		});
 	}
 	private void updateDescription() 
 	{
@@ -326,12 +342,14 @@ public class PokemonPanel extends JPanel
 		if (megaBox.isSelected() && controller.getPokedex().get(scroll.getSelectedIndex()).getName().equals("Charizard")) {
 			image.setIcon(new ImageIcon(getClass().getResource("images/" + "MegaCharizardY" + ".png")));
 			controller.getPokedex().get(scroll.getSelectedIndex()).setAttackPoints(150);
+			controller.getPokedex().get(scroll.getSelectedIndex()).setHealthPoints(130);
 			updatePokedexInfo(currentIndex);
 		}
 		else {
 			updateImage = controller.getPokedex().get(scroll.getSelectedIndex()).getName();
 			image.setIcon(new ImageIcon(getClass().getResource("images/" + updateImage + ".png")));
-			controller.getPokedex().get(scroll.getSelectedIndex()).setAttackPoints(109);
+			controller.getPokedex().get(scroll.getSelectedIndex()).setAttackPoints(95);
+			controller.getPokedex().get(scroll.getSelectedIndex()).setHealthPoints(109);
 			updatePokedexInfo(currentIndex);
 		}
 	}
